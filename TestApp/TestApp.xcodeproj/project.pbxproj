@@ -13,6 +13,8 @@
 		EDEB0F232BBC219800F03944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDEB0F222BBC219800F03944 /* Assets.xcassets */; };
 		EDEB0F262BBC219800F03944 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDEB0F242BBC219800F03944 /* LaunchScreen.storyboard */; };
 		EDEB0F322BBC8F6400F03944 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F312BBC8F6400F03944 /* Coordinator.swift */; };
+		EDEB0F342BBC9D6D00F03944 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F332BBC9D6D00F03944 /* AppCoordinator.swift */; };
+		EDEB0F3B2BBC9F2100F03944 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F3A2BBC9F2100F03944 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		EDEB0F252BBC219800F03944 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDEB0F272BBC219800F03944 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDEB0F312BBC8F6400F03944 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		EDEB0F332BBC9D6D00F03944 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		EDEB0F3A2BBC9F2100F03944 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		EDEB0F182BBC219700F03944 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				EDEB0F352BBC9E8500F03944 /* UIlayer */,
 				EDEB0F2E2BBC8EA200F03944 /* Navigation */,
 				EDEB0F192BBC219700F03944 /* AppDelegate.swift */,
 				EDEB0F1B2BBC219700F03944 /* SceneDelegate.swift */,
@@ -71,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				EDEB0F312BBC8F6400F03944 /* Coordinator.swift */,
+				EDEB0F332BBC9D6D00F03944 /* AppCoordinator.swift */,
+				EDEB0F3A2BBC9F2100F03944 /* MainCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -81,6 +88,21 @@
 				EDEB0F2D2BBC8E9500F03944 /* Coordinators */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		EDEB0F352BBC9E8500F03944 /* UIlayer */ = {
+			isa = PBXGroup;
+			children = (
+				EDEB0F362BBC9E9100F03944 /* Scenes */,
+			);
+			path = UIlayer;
+			sourceTree = "<group>";
+		};
+		EDEB0F362BBC9E9100F03944 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,7 +176,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDEB0F322BBC8F6400F03944 /* Coordinator.swift in Sources */,
+				EDEB0F3B2BBC9F2100F03944 /* MainCoordinator.swift in Sources */,
 				EDEB0F1E2BBC219700F03944 /* ViewController.swift in Sources */,
+				EDEB0F342BBC9D6D00F03944 /* AppCoordinator.swift in Sources */,
 				EDEB0F1A2BBC219700F03944 /* AppDelegate.swift in Sources */,
 				EDEB0F1C2BBC219700F03944 /* SceneDelegate.swift in Sources */,
 			);
