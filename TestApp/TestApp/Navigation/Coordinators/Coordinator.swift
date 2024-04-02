@@ -15,7 +15,7 @@ enum CoordinatorType {
 }
 
 protocol CoordinatorFinishDelegate: AnyObject {
-    func coordinatorDidFinish(_ cildCoordinator: CoordinatorProtocol)
+    func coordinatorDidFinish(_ childCoordinator: CoordinatorProtocol)
 }
 
 protocol CoordinatorProtocol: AnyObject {
@@ -37,6 +37,7 @@ extension CoordinatorProtocol {
 }
 
 class Coordinator: CoordinatorProtocol {
+    
     var childCoordinators: [CoordinatorProtocol]
     var type: CoordinatorType
     var navigationController: UINavigationController?
@@ -67,5 +68,6 @@ class Coordinator: CoordinatorProtocol {
     func finish() {
         print("The coordinator \(type) has been finished")
     }
+    
 }
 
