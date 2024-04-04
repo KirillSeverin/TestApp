@@ -69,7 +69,6 @@ class TASubscriptionView: UIView {
     }
     
     private func setupBackground() {
-        //TODO: - backround green view on parent view
         backgroundColor = TAColors.green
         layer.cornerRadius = 10
         
@@ -204,8 +203,8 @@ class TASubscriptionView: UIView {
     private func setupSubscriptionPlan() {
         subscriptionPlan.translatesAutoresizingMaskIntoConstraints = false
         subscriptionPlan.text = "biled once"
-        subscriptionPlan.textColor = TAColors.subscriptionOldCost
-        subscriptionPlan.font = UIFont.systemFont(ofSize: 9)
+        subscriptionPlan.textColor = TAColors.subscriptionGray
+        subscriptionPlan.font = UIFont.systemFont(ofSize: 12)
         subscriptionPlan.textAlignment = .center
     }
     

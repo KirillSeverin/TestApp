@@ -12,5 +12,4 @@ enum TAColors {
     static let subscriptionGray = UIColor().hex(0x8C8C8C)
     static let green = UIColor().hex(0x25C656)
     static let white = UIColor().hex(0xFFFFFF)
-    static let subscriptionOldCost = UIColor().hex(0x8C8C8C)
 }
