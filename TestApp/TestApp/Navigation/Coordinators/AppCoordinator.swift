@@ -12,13 +12,16 @@ import UIKit
 class AppCoordinator: Coordinator {
     
     override func start() {
-        //TODO: User defaults
-        showMainFlow()
-//        showAdvertisement()
+        scenesSettings()
     }
     
     override func finish() {
         print("The AppCordinator has been finished")
+    }
+    
+    private func scenesSettings() {
+        showMain()
+        //TODO: - user defaults
     }
     
 }
@@ -32,6 +35,9 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         case .main:
             navigationController?.viewControllers.removeAll()
             showAdvertisement()
+        case .advertisement:
+            navigationController?.viewControllers.removeAll()
+            showHome()
         case .app: return
         default:
             navigationController?.popToRootViewController(animated: false)
@@ -41,7 +47,7 @@ extension AppCoordinator: CoordinatorFinishDelegate {
 
 //MARK: - Navigation methods
 private extension AppCoordinator {
-    func showMainFlow() {
+    func showMain() {
         guard let navigationController = navigationController else { return }
         let onboardingCoordinator = MainCoordinator(
             type: .main,
@@ -59,6 +65,16 @@ private extension AppCoordinator {
             finishDelegate: self)
         addChildCoordinator(advertisementCoordinator)
         advertisementCoordinator.start()
+    }
+    
+    func showHome() {
+        guard let navigationController = navigationController else { return }
+        let homeCoordinator = HomeCoordinator(
+            type: .home,
+            navigationController: navigationController,
+            finishDelegate: self)
+        addChildCoordinator(homeCoordinator)
+        homeCoordinator.start()
     }
 }
 

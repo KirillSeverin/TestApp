@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class MainCoordinator: Coordinator {
     
     override func start() {
@@ -15,7 +14,7 @@ class MainCoordinator: Coordinator {
     }
     
     override func finish() {
-        print("The AppCordinator has been finished")
+        print("The MainCoordinator has been finished")
         finishDelegate?.coordinatorDidFinish(self)
     }
     

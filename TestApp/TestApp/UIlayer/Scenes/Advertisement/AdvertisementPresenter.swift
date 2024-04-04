@@ -7,6 +7,23 @@
 
 import Foundation
 
-class AdvertisementPresenter {
+
+protocol AdvertisementViewOutput: AnyObject {
+    func advertisementFinish()
+}
+
+class AdvertisementPresenter: AdvertisementViewOutput {
+    
+    weak var coordinator: AdvertisementCoordinator!
+    
+    init(
+        coordinator: AdvertisementCoordinator? = nil
+    ) {
+        self.coordinator = coordinator
+    }
+    
+    func advertisementFinish() {
+        coordinator.finish()
+    }
     
 }

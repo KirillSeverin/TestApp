@@ -15,6 +15,7 @@ class AdvertisementViewController: UIViewController {
     private let topBackgroundView = UIView() //TODO: Collection view
     private let bottomBackgroundView = UILabel()
     private let specialOfferView = UILabel()
+    private let timerLabel = UILabel()
     private let lifeTimeSubscriptionView = TASubscriptionView()
     private let monthlyPlanSubscriptionView = TASubscriptionView()
     private let subscriptionStackView = UIStackView()
@@ -24,10 +25,77 @@ class AdvertisementViewController: UIViewController {
     private let privacyPolicyButton = UIButton()
     private let restorePurchaseButton = UIButton()
     private let documentsStackView = UIStackView()
+    
+    private var timer: Timer?
+    private var secondsRemaining = 61
+    private var advertisementViewOutput: AdvertisementViewOutput?
+    
+    //MARK: - Initializers
+    init(
+        viewOutput: AdvertisementViewOutput?
+    ) {
+        self.advertisementViewOutput = viewOutput
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        checkCurrentTime()
+        startTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UserDefaults.standard.set(Date(), forKey: "savedTime")
+    }
+    
+    //MARK: - Timer settings
+    private func checkCurrentTime() {
+        if let savedTime = UserDefaults
+            .standard
+            .object(forKey: "savedTime") as? Date {
+            let elapsedTime = Date().timeIntervalSince(savedTime)
+            secondsRemaining -= Int(elapsedTime)
+        }
+    }
+    
+    private func getFormattedTimeString() -> NSAttributedString {
+        let hours = secondsRemaining / 3600
+        let minutes = (secondsRemaining % 3600) / 60
+        let seconds = secondsRemaining % 60
+        let formattedTime = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        
+        
+        let spacedTimeString = formattedTime.map { String($0) }.joined(separator: " ")
+        let attributedString = NSMutableAttributedString(string: spacedTimeString)
+        
+        timerLabel.attributedText = attributedString
+        return attributedString
+    }
+    
+    private func startTimer() {
+        timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(updateTimer),
+            userInfo: nil,
+            repeats: true)
+    }
+    
+    @objc private func updateTimer() {
+        if secondsRemaining > 0 {
+            secondsRemaining -= 1
+            timerLabel.attributedText = getFormattedTimeString()
+        } else {
+            timer?.invalidate()
+            advertisementViewOutput?.advertisementFinish()
+        }
     }
 }
 
@@ -37,6 +105,7 @@ private extension AdvertisementViewController {
         setupTopBackgroundView()
         setupBottomBackgroundView()
         setupSpecialOfferLabel()
+        setupTimerLabel()
         setupLifeTimeSubscriptionView()
         setupMonthlyPlanSubscriptionView()
         setupSubscriptionStackView()
@@ -96,6 +165,19 @@ private extension AdvertisementViewController {
         ])
     }
     
+    func setupTimerLabel() {
+        view.addSubview(timerLabel)
+        timerLabel.translatesAutoresizingMaskIntoConstraints = false
+        timerLabel.attributedText = getFormattedTimeString()
+        timerLabel.textColor = TAColors.white
+        timerLabel.font = UIFont.systemFont(ofSize: 35, weight: .black)
+        
+        NSLayoutConstraint.activate([
+            timerLabel.topAnchor.constraint(equalTo: specialOfferView.bottomAnchor),
+            timerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
     func setupLifeTimeSubscriptionView() {
         lifeTimeSubscriptionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -123,7 +205,7 @@ private extension AdvertisementViewController {
         subscriptionStackView.addArrangedSubview(monthlyPlanSubscriptionView)
         
         NSLayoutConstraint.activate([
-            subscriptionStackView.topAnchor.constraint(equalTo: specialOfferView.bottomAnchor, constant: 60),
+            subscriptionStackView.topAnchor.constraint(equalTo: timerLabel.bottomAnchor, constant: 25),
             subscriptionStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
@@ -200,5 +282,5 @@ private extension AdvertisementViewController {
 }
 
 #Preview("AdvertisementViewController") {
-    AdvertisementViewController()
+    AdvertisementViewController(viewOutput: AdvertisementPresenter())
 }
