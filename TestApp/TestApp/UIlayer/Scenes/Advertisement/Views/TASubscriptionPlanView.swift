@@ -16,6 +16,7 @@ class TASubscriptionView: UIView {
     
     //MARK: - Properties
     private let popularBackgroundView = UIView()
+    private let backgroundView = UIView()
     private let popularLabel = UILabel()
     private let circleView = UIView()
     private let subscriptionStateButton = UIButton()
@@ -68,10 +69,21 @@ class TASubscriptionView: UIView {
     }
     
     private func setupBackground() {
-        backgroundColor = TAColors.subscriptionViewBackground
+        //TODO: - backround green view on parent view
+        backgroundColor = TAColors.green
         layer.cornerRadius = 10
-        layer.borderWidth = 1
-        layer.borderColor = TAColors.green.cgColor
+        
+        addSubview(backgroundView)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.backgroundColor = TAColors.subscriptionViewBackground
+        backgroundView.layer.cornerRadius = 10
+        
+        NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: topAnchor, constant: 1),
+            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -1),
+            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1),
+            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -1)
+        ])
     }
     
     private func setupPopularBackroundView() {
@@ -81,7 +93,7 @@ class TASubscriptionView: UIView {
         popularBackgroundView.layer.cornerRadius = 6
         
         NSLayoutConstraint.activate([
-            popularBackgroundView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -55),
+            popularBackgroundView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -60),
             popularBackgroundView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             popularBackgroundView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             popularBackgroundView.heightAnchor.constraint(equalToConstant: 20),
@@ -93,7 +105,7 @@ class TASubscriptionView: UIView {
         addSubview(popularLabel)
         popularLabel.translatesAutoresizingMaskIntoConstraints = false
         popularLabel.text = "POPULAR"
-        popularLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        popularLabel.font = UIFont.boldSystemFont(ofSize: 12)
         popularLabel.textAlignment = .center
         popularLabel.textColor = TAColors.white
         
