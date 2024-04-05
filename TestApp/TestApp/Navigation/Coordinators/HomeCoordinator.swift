@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+class HomeCoordinator: Coordinator {
+    
+    override func start() {
+        let vc = HomeViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func finish() {
+        print("The AppCordinator has been finished")
+        finishDelegate?.coordinatorDidFinish(self)
+    }
+    
+}

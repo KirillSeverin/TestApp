@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDD71D092BBDF272002F370E /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD71D082BBDF272002F370E /* UIColor+Ext.swift */; };
 		EDEB0F1A2BBC219700F03944 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F192BBC219700F03944 /* AppDelegate.swift */; };
 		EDEB0F1C2BBC219700F03944 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F1B2BBC219700F03944 /* SceneDelegate.swift */; };
 		EDEB0F1E2BBC219700F03944 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F1D2BBC219700F03944 /* MainViewController.swift */; };
@@ -22,9 +23,12 @@
 		EDEB0F4D2BBCBCDB00F03944 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F4C2BBCBCDB00F03944 /* HomeViewController.swift */; };
 		EDEB0F4F2BBCBD2300F03944 /* AdvertisementPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F4E2BBCBD2300F03944 /* AdvertisementPresenter.swift */; };
 		EDEB0F532BBCBD5C00F03944 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F522BBCBD5C00F03944 /* HomePresenter.swift */; };
+		EDEB0F562BBD43B700F03944 /* TASubscriptionPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F552BBD43B700F03944 /* TASubscriptionPlanView.swift */; };
+		EDEB0F5D2BBD4EFB00F03944 /* TAColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEB0F5C2BBD4EFB00F03944 /* TAColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDD71D082BBDF272002F370E /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Ext.swift"; path = "Extensions/UIColor+Ext.swift"; sourceTree = "<group>"; };
 		EDEB0F162BBC219700F03944 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEB0F192BBC219700F03944 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDEB0F1B2BBC219700F03944 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 		EDEB0F4C2BBCBCDB00F03944 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EDEB0F4E2BBCBD2300F03944 /* AdvertisementPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementPresenter.swift; sourceTree = "<group>"; };
 		EDEB0F522BBCBD5C00F03944 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		EDEB0F552BBD43B700F03944 /* TASubscriptionPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TASubscriptionPlanView.swift; sourceTree = "<group>"; };
+		EDEB0F5C2BBD4EFB00F03944 /* TAColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 			children = (
 				EDEB0F352BBC9E8500F03944 /* UIlayer */,
 				EDEB0F2E2BBC8EA200F03944 /* Navigation */,
+				EDEB0F582BBD4E7500F03944 /* Resources */,
 				EDEB0F192BBC219700F03944 /* AppDelegate.swift */,
 				EDEB0F1B2BBC219700F03944 /* SceneDelegate.swift */,
 				EDEB0F222BBC219800F03944 /* Assets.xcassets */,
@@ -135,6 +142,7 @@
 		EDEB0F482BBCBC4300F03944 /* Advertisement */ = {
 			isa = PBXGroup;
 			children = (
+				EDEB0F542BBD431300F03944 /* Views */,
 				EDEB0F402BBCAE6A00F03944 /* AdvertisementViewController.swift */,
 				EDEB0F4E2BBCBD2300F03944 /* AdvertisementPresenter.swift */,
 			);
@@ -148,6 +156,31 @@
 				EDEB0F522BBCBD5C00F03944 /* HomePresenter.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EDEB0F542BBD431300F03944 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EDEB0F552BBD43B700F03944 /* TASubscriptionPlanView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDEB0F582BBD4E7500F03944 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EDEB0F5B2BBD4ED900F03944 /* Extensions */,
+				EDEB0F5C2BBD4EFB00F03944 /* TAColors.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EDEB0F5B2BBD4ED900F03944 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EDD71D082BBDF272002F370E /* UIColor+Ext.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,10 +253,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEB0F5D2BBD4EFB00F03944 /* TAColors.swift in Sources */,
 				EDEB0F3F2BBCAE2100F03944 /* AdvertisementCoordinator.swift in Sources */,
 				EDEB0F322BBC8F6400F03944 /* Coordinator.swift in Sources */,
+				EDEB0F562BBD43B700F03944 /* TASubscriptionPlanView.swift in Sources */,
 				EDEB0F4F2BBCBD2300F03944 /* AdvertisementPresenter.swift in Sources */,
 				EDEB0F412BBCAE6A00F03944 /* AdvertisementViewController.swift in Sources */,
+				EDD71D092BBDF272002F370E /* UIColor+Ext.swift in Sources */,
 				EDEB0F3B2BBC9F2100F03944 /* MainCoordinator.swift in Sources */,
 				EDEB0F1E2BBC219700F03944 /* MainViewController.swift in Sources */,
 				EDEB0F342BBC9D6D00F03944 /* AppCoordinator.swift in Sources */,

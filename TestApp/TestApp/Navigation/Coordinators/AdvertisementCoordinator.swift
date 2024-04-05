@@ -10,12 +10,20 @@ import UIKit
 class AdvertisementCoordinator: Coordinator {
     
     override func start() {
-        let vc = AdvertisementViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        showAdvertisementScene()
     }
     
     override func finish() {
-        print("The AppCordinator has been finished")
+        print("The AdvertisementCoordinator has been finished")
+        finishDelegate?.coordinatorDidFinish(self)
     }
     
+}
+
+extension AdvertisementCoordinator {
+    func showAdvertisementScene() {
+        let presenter = AdvertisementPresenter(coordinator: self)
+        let vc = AdvertisementViewController(viewOutput: presenter)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

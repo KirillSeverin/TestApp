@@ -11,13 +11,13 @@ class MainViewController: UIViewController {
     
     //MARK: - Properties
     let backgroundView = UIView()
-    var viewOutput: MainViewOutput!
+    var mainViewOutput: MainViewOutput!
     
     //MARK: - Initializers
     init(
         viewOutput: MainViewOutput!
     ) {
-        self.viewOutput = viewOutput
+        self.mainViewOutput = viewOutput
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,8 +37,7 @@ class MainViewController: UIViewController {
 //MARK: - Layout
 extension MainViewController {
     @objc private func buttonViewPressing() {
-        print("Pressed")
-        viewOutput.mainFinish()
+        mainViewOutput.mainFinish()
     }
     
     private func setupButtonView() {
