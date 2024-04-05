@@ -50,11 +50,6 @@ class AdvertisementViewController: UIViewController {
         startTimer()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UserDefaults.standard.set(Date(), forKey: "savedTime")
-    }
-    
     //MARK: - Timer settings
     private func checkCurrentTime() {
         if let savedTime = UserDefaults
